@@ -30,6 +30,7 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 
 		if @place.update(place_params)
+
 			redirect_to place_path(@place)
 		else
 			render 'edit'
@@ -39,6 +40,6 @@ class PlacesController < ApplicationController
 
 	private
 		def place_params
-			params.permit(:name, :adress, :phone_number, :city, :descriiption, :contact_mail, :established_at)
+			params.permit(:name, :adress, :phone_number, :city, :description, :contact_mail, :established_at)
 		end
 end
