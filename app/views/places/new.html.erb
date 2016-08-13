@@ -6,29 +6,9 @@
 	<% end %>
 <% end %>
 
-<form action="<%= places_path %>" method="post">
-<b>Name : </b><br>
-<input type="text" name="name" value="<%= @place.name %>">
-<br>
-<b>Adress : </b><br>
-<input type="text" name="adress" value="<%= @place.adress %>">
-<br>
-<b>Phone Number : </b><br>
-<input type="text" name="phone_number" value="<%= @place.phone_number %>">
-<br>
-<b>City : </b><br>
-<input type="text" name="city" value="<%= @place.city %>">
-<br>
-<b>Description : </b><br>
-<textarea name="description" rows="8" cols="40" > <%= @place.description %></textarea>
-<br>
-<b>Contact Mail : </b><br>
-<input type="text" name="contact_mail" value="<%= @place.contact_mail %>">
-<br>
-<b>Established Date : </b><br>
-<input type="text" name="established_at" value="<%= @place.established_at %>">
-<br>
-<button type="submit" name="button">SUBMIT</button>
-</form>
+
+
+<%= render 'form' %>
+
 
 <br><i><%= link_to 'List places', places_path %></i>

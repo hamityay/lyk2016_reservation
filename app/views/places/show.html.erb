@@ -1,9 +1,12 @@
+
 <h3>Showing <%= @place.id %> th Place</h3>
 <p> <b>Name : </b><i> <%= @place.name %> </i><br>
 <b>Adress : </b><%= @place.adress %><br>
 <b>Desc : </b><%= @place.description %><br>
 <b>Phone Number : </b><u><%= @place.phone_number %></u><br>
-<b>City : </b><%= @place.city %></p>
+<b>City : </b><%= @place.city %><br>
+<b>Category : </b><%= @place.category.name %></p>
 
-<br><i><%= link_to 'edit', edit_place_path %></i>
-<i><%= link_to 'list places', root_path %></i>
+<br><i><%= link_to 'Edit place', edit_place_path %></i>
+<i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+<i><%= link_to 'List places', root_path %></i>

@@ -1,7 +1,9 @@
 class PlacesController < ApplicationController
+	before_action :set_place, only: [:show, :edit, :update, :destroy]
 
 	def new
 		@place = Place.new
+		load_categories
 	end
 
 	def  index
@@ -9,37 +11,55 @@ class PlacesController < ApplicationController
 	end
 
 	def show
-		@place = Place.find(params[:id])
+		
 	end
 
 	def create
 		@place = Place.new(place_params)
 
 		if @place.save
+			flash[:success] = 'Place infos saved successfuly'
 			redirect_to place_path(@place)
 		else
-			render 'new'
+			load_categories
+			render :new
 		end
 	end
 
 	def edit
-		@place = Place.find(params[:id])
+		load_categories
 	end
 
 	def update
-		@place = Place.find(params[:id])
+		
 
 		if @place.update(place_params)
-
+			flash[:success] = 'Place infos updated successfuly'
 			redirect_to place_path(@place)
 		else
-			render 'edit'
+			load_categories
+			render :edit
 		end
 
 	end
 
+	def destroy
+		
+		@place.destroy
+		flash[:warning] = 'Place infos deleted successfuly'
+		redirect_to places_path
+	end
+
 	private
+		def set_place
+			@place = Place.find(params[:id])
+		end
+
 		def place_params
-			params.permit(:name, :adress, :phone_number, :city, :description, :contact_mail, :established_at)
+			params.require(:place).permit(:name, :adress, :phone_number, :city, :description, :contact_mail, :established_at, :category_id)
+		end
+
+		def load_categories
+			@categories = Category.all.collect { |c| [c.name, c.id] }
 		end
 end

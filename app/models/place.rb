@@ -10,4 +10,8 @@ class Place < ApplicationRecord
 			errors.add(:established_at, "Cannot be past")
 		end
 	end
+
+	def category
+		Category.find(category_id)
+	end
 end
