@@ -10,7 +10,7 @@ class Place < ApplicationRecord
 			errors.add(:established_at, "Cannot be past")
 		end
 	end
-
+	has_many :comments
 	belongs_to :category
 	# def category
 	# 	Category.find(category_id)
