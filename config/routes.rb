@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   #resources :places
 	root 'places#index'
 	resources :places
+	resources :categories, only: [:index, :show]
   
 end

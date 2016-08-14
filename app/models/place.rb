@@ -11,7 +11,8 @@ class Place < ApplicationRecord
 		end
 	end
 
-	def category
-		Category.find(category_id)
-	end
+	belongs_to :category
+	# def category
+	# 	Category.find(category_id)
+	# end
 end
