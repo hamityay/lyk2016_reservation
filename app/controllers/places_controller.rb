@@ -1,5 +1,7 @@
 class PlacesController < ApplicationController
 	before_action :set_place, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_owner!, exept: [:index, :show]
+	before_action :authorize_owner!, only: [:edit, :update, :destroy]
 
 	def new
 		@place = Place.new
@@ -11,11 +13,11 @@ class PlacesController < ApplicationController
 	end
 
 	def show
-		
+
 	end
 
 	def create
-		@place = Place.new(place_params)
+		@place = current_owner.places.new(place_params)
 
 		if @place.save
 			flash[:success] = 'Place infos saved successfuly'
@@ -31,7 +33,7 @@ class PlacesController < ApplicationController
 	end
 
 	def update
-		
+
 
 		if @place.update(place_params)
 			flash[:success] = 'Place infos updated successfuly'
@@ -44,13 +46,17 @@ class PlacesController < ApplicationController
 	end
 
 	def destroy
-		
+
 		@place.destroy
 		flash[:warning] = 'Place infos deleted successfuly'
 		redirect_to places_path
 	end
 
 	private
+		def authorize_owner!
+			redirect_to root_path, notice: 'Not authorized...' unless @place.owner_id == current_owner.id
+		end
+
 		def set_place
 			@place = Place.find(params[:id])
 		end

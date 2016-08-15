@@ -19,16 +19,16 @@
   @import "base/grids"
   @import "base/spaces"
   @import "base/helper"
- 
+
   // Layout specific styles
   @import "application/typography"
   @import "application/layout"
- 
+
   // Objects
   @import "application/objects/buttons"
   @import "application/objects/inputs"
   .......................
- 
+
   // Modules
   @import "application/modules/profile"
   @import "application/modules/dashboard"

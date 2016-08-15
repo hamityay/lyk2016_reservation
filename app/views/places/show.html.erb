@@ -5,7 +5,12 @@
 <b>Desc : </b><%= @place.description %><br>
 <b>Phone Number : </b><u><%= @place.phone_number %></u><br>
 <b>City : </b><%= @place.city %><br>
-<b>Category : </b><%= @place.category.name %></p>
+<b>Category : </b><%= @place.category.name %><br>
+<% if current_owner.present? && current_owner.id == @place.owner_id %>
+  <br><i><%= link_to 'Edit place', edit_place_path %></i>
+  <i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+<% end %>
+</p>
 
 <h2> Comments </h2>
 <p>
@@ -19,9 +24,6 @@
 
 <h2> Add your Comment </h2>
 <%= render 'comments/form' %>
-
-<br><i><%= link_to 'Edit place', edit_place_path %></i>
-<i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
 
 
 <!-- <div class="panel panel-default">

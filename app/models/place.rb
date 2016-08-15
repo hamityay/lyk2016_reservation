@@ -6,12 +6,13 @@ class Place < ApplicationRecord
 	validate :check_established_at
 
 	def check_established_at
-		if established_at.present? && established_at < Date.today
-			errors.add(:established_at, "Cannot be past")
+		if established_at.present? && established_at > Date.today
+			errors.add(:established_at, "Couldn't be feature")
 		end
 	end
 	has_many :comments
 	belongs_to :category
+	belongs_to :owner
 	# def category
 	# 	Category.find(category_id)
 	# end
