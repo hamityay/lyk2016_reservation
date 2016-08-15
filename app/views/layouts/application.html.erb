@@ -6,9 +6,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+    .center {
+      margin: auto;
+      width: 60%;
+      border: 3px;
+      padding: 10px;
+    }
+    </style>
   </head>
 
   <body>
+  <div class="center">
     <% if !flash.empty? %>
       <div id="flash">
         <% flash.keys.each do |k| %>
@@ -18,14 +27,16 @@
         <% end %>
       </div>
     <% end %>
+  </div>
 
-    <% if current_costumer.present? %>
+  <div class="center">
+    <!-- <% if current_costumer.present? %>
       <%= current_costumer.email %>
       <%= link_to 'Logout', destroy_costumer_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Login as a Customer', new_costumer_session_path %>
       <%= link_to 'Sign Up as a Customer', new_costumer_registration_path %>
-    <% end %>
+    <% end %> -->
     <% if current_owner.present? %>
       <%= current_owner.email %>
       <%= link_to 'Logout', destroy_owner_session_path, method: :delete %>
@@ -33,10 +44,14 @@
       <%= link_to 'Login as an Owner', new_owner_session_path %>
       <%= link_to 'Sign Up as an Owner', new_owner_registration_path %>
     <% end %>
+  </div>
 
-    <%= yield %>
-    <br><i><%= link_to 'Add new place', new_place_path %></i><br>
-    <i><%= link_to 'List Categories', categories_path %></i><br>
-    <i><%= link_to 'List places', root_path %></i>
+
+  <div class="center">
+      <%= yield %>
+      <br><i><%= link_to 'Add new place', new_place_path %></i>
+      <i><%= link_to 'List Categories', categories_path %></i>
+      <i><%= link_to 'List places', root_path %></i>
+  </div>
   </body>
 </html>
