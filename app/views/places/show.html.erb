@@ -22,3 +22,24 @@
 
 <br><i><%= link_to 'Edit place', edit_place_path %></i>
 <i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+
+
+<!-- <div class="panel panel-default">
+  <div class="panel-heading">
+    Comments
+  </div>
+  <div class="panel-body">
+    <% @place.comments.each do |comment| %>
+      <p><%= comment.body %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Send a new comment
+  </div>
+  <div class="panel-body">
+    <%= render 'comments/form' %>
+  </div>
+</div> -->

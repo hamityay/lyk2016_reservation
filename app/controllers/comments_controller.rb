@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :set_comment, only: [:create, :destroy]
+  before_action :set_place, only: [:create, :destroy]
   def create
     @comment = @place.comments.create(comment_params)
     if @comment.save
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:body)
     end
-    def set_comment
+    def set_place
       @place = Place.find(params[:place_id])
     end
 end

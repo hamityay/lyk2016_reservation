@@ -9,7 +9,25 @@
   </head>
 
   <body>
-  	<%= render 'flash' %>
+    <% if !flash.empty? %>
+      <div id="flash">
+        <% flash.keys.each do |k| %>
+          <div class="<%= k %>">
+            <%= flash[k] %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <% if current_costumer.present? %>
+      <%= current_costumer.email %>
+      <%= link_to 'Logout', destroy_costumer_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Login', new_costumer_session_path %>
+      <%= link_to 'Sign Up', new_costumer_registration_path %>
+
+    <% end %>
+
     <%= yield %>
     <br><i><%= link_to 'Add new place', new_place_path %></i><br>
     <i><%= link_to 'List Categories', categories_path %></i><br>
