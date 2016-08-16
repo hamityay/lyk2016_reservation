@@ -30,13 +30,13 @@
   </div>
 
   <div class="center">
-    <!-- <% if current_costumer.present? %>
+    <% if current_costumer.present? %>
       <%= current_costumer.email %>
       <%= link_to 'Logout', destroy_costumer_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Login as a Customer', new_costumer_session_path %>
       <%= link_to 'Sign Up as a Customer', new_costumer_registration_path %>
-    <% end %> -->
+    <% end %>
     <% if current_owner.present? %>
       <%= current_owner.email %>
       <%= link_to 'Logout', destroy_owner_session_path, method: :delete %>
