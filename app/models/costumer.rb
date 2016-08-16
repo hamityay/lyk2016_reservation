@@ -3,4 +3,8 @@ class Costumer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :comments, dependent: :destroy
+
+  #before_destroy :assign
 end

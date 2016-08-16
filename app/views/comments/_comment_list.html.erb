@@ -1,0 +1,12 @@
+<h2> Comments </h2>
+<p>
+  <% @place.comments.each do |comment| %>
+    <b>
+    <small><%= comment.costumer.email %> says : </small></b>
+    <%= comment.body %>
+    <% if current_costumer.present? && comment.costumer_id = current_costumer.id %>
+      <i><%= link_to 'Delete comment', place_comment_path(@place, comment), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+    <% end %>
+    <br>
+  <% end %>
+</p>

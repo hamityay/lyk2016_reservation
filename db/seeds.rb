@@ -7,12 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Creating seed data ..."
 
-Category.create(name: 'Category 1')
-Category.create(name: 'Category 2')
-Category.create(name: 'Category 3')
+c = Owner.create(email: "admin@admin.com", password: 123456)
 
-Place.create(name: 'New place', adress: 'This is an adress', phone_number: '122 456 7890', city: 'City', description: 'This is a description', contact_mail: "info@newplace.com", category_id: 1)
-Place.create(name: 'Another place', adress: 'This is a second adress', phone_number: '123 334 5643', city: 'Second City', description: 'This is another description for another place', contact_mail: "info@anotherplace.com", category_id: 3)
-Place.create(name: 'Place', adress: 'This is an adress for Place', phone_number: '777 777 7777', city: 'Another City', description: 'Desc for Place name', contact_mail: "info@place.com", category_id: 2)
+c1 = Category.create(name: 'Category 1')
+c2 = Category.create(name: 'Category 2')
+c3 = Category.create(name: 'Category 3')
+
+Place.create(name: 'New place', adress: 'This is an adress', phone_number: '122 456 7890', city: 'City', description: 'This is a description', contact_mail: "info@newplace.com", category_id: c1.id, owner: c)
+Place.create(name: 'Another place', adress: 'This is a second adress', phone_number: '123 334 5643', city: 'Second City', description: 'This is another description for another place', contact_mail: "info@anotherplace.com", category: c2, owner: c )
+Place.create(name: 'Place', adress: 'This is an adress for Place', phone_number: '777 777 7777', city: 'Another City', description: 'Desc for Place name', contact_mail: "info@place.com", category_id: c3.id, owner: c)
 
 puts "Created seed data ..."

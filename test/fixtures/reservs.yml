@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  costumer: one
+  place: one
+  date: 2016-08-16
+  number_of_p: 1
+
+two:
+  costumer: two
+  place: two
+  date: 2016-08-16
+  number_of_p: 1

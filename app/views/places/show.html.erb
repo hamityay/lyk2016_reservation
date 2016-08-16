@@ -6,42 +6,17 @@
 <b>Phone Number : </b><u><%= @place.phone_number %></u><br>
 <b>City : </b><%= @place.city %><br>
 <b>Category : </b><%= @place.category.name %><br>
+<b>Owner : </b><%= @place.owner.email %> <b> id : </b> <%= @place.owner.id %> <br>
 <% if current_owner.present? && current_owner.id == @place.owner_id %>
   <br><i><%= link_to 'Edit place', edit_place_path %></i>
   <i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
 <% end %>
 </p>
 
-<h2> Comments </h2>
-<p>
-  <% @place.comments.each do |comment| %>
-    <b>Comment:</b>
-    <%= comment.body %>
-    <!--<i><%= link_to 'Delete comment', place_comment_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
-    --><br>
-  <% end %>
-</p>
 
-<h2> Add your Comment </h2>
-<%= render 'comments/form' %>
+<%= render 'comments/comment_list' %>
 
-
-<!-- <div class="panel panel-default">
-  <div class="panel-heading">
-    Comments
-  </div>
-  <div class="panel-body">
-    <% @place.comments.each do |comment| %>
-      <p><%= comment.body %></p>
-    <% end %>
-  </div>
-</div>
-
-<div class="panel panel-primary">
-  <div class="panel-heading">
-    Send a new comment
-  </div>
-  <div class="panel-body">
-    <%= render 'comments/form' %>
-  </div>
-</div> -->
+<% if current_costumer.present? %>
+  <h2> Comments </h2>
+  <%= render 'comments/form' %>
+<% end %>

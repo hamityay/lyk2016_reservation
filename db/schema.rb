@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160815162718) do
+ActiveRecord::Schema.define(version: 20160816145412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20160815162718) do
   create_table "comments", force: :cascade do |t|
     t.text     "body"
     t.integer  "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "costumer_id"
+    t.index ["costumer_id"], name: "index_comments_on_costumer_id", using: :btree
     t.index ["place_id"], name: "index_comments_on_place_id", using: :btree
   end
 
@@ -78,7 +80,21 @@ ActiveRecord::Schema.define(version: 20160815162718) do
     t.index ["owner_id"], name: "index_places_on_owner_id", using: :btree
   end
 
+  create_table "reservs", force: :cascade do |t|
+    t.integer  "costumer_id"
+    t.integer  "place_id"
+    t.date     "date"
+    t.integer  "number_of_p"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["costumer_id"], name: "index_reservs_on_costumer_id", using: :btree
+    t.index ["place_id"], name: "index_reservs_on_place_id", using: :btree
+  end
+
+  add_foreign_key "comments", "costumers"
   add_foreign_key "comments", "places"
   add_foreign_key "places", "categories"
   add_foreign_key "places", "owners"
+  add_foreign_key "reservs", "costumers"
+  add_foreign_key "reservs", "places"
 end
