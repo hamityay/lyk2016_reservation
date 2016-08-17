@@ -9,9 +9,12 @@ class Place < ApplicationRecord
 	has_many :reservs, dependent: :destroy
 	has_many :costumers, through: :reservs
 	has_and_belongs_to_many :foods
+	has_one :social_profile
 
 	belongs_to :category
 	belongs_to :owner
+
+	accepts_nested_attributes_for :social_profile
 
 	def check_established_at
 		if established_at.present? && established_at > Date.today

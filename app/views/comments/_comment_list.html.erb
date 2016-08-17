@@ -1,6 +1,7 @@
-<h2> Comments </h2>
+
 <p>
   <% @place.comments.each do |comment| %>
+    <h2> Comments </h2>
     <b>
     <small><%= comment.costumer.email %> says : </small></b>
     <%= comment.body %>

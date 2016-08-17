@@ -1,6 +1,7 @@
-<h2> Reservations </h2>
+
 <p>
   <% @place.reservs.each do |r| %>
+    <h2> Reservations </h2>
     <b> Reservation made by </b><small><%= r.costumer.email %>  </small><br>
     <b> Reservation Date : </b> <%= r.date %><br>
     <b> Number of Reservation people : </b> <%= r.number_of_p %>

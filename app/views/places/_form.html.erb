@@ -27,6 +27,22 @@
 	<%= f.label :Foods %><br>
 	<%= f.collection_check_boxes(:food_ids, @foods, :id, :name) %><br>
 
+	<%= form_for :social_profile do |sf| %>
+	<h3> Social Profiles </h3>
+		<%= sf.label :facebook %><br>
+		<%= sf.text_field :facebook, placeholder: 'facebook' %><br>
+
+		<%= sf.label :twitter %><br>
+		<%= sf.text_field :twitter, placeholder: 'twitter' %><br>
+
+		<%= sf.label :instagram %><br>
+		<%= sf.text_field :instagram, placeholder: 'instagram' %><br>
+
+		<%= sf.label :foursquare %><br>
+		<%= sf.text_field :foursquare, placeholder: 'foursquare' %><br>
+
+	<% end %>
+
 	<%= f.submit 'SUBMIT' %>
 
 <% end %>
