@@ -1,6 +1,6 @@
 
 
-<h2> Listing all Place infos </h2>
+<h2> Listing all Places </h2>
 <% @places.each do |p| %>
 <p> <b>Name : </b><i><a href="<%= place_path(p) %>"> <%= p.name %> </a></i><br>
 <b>Adress : </b><%= p.adress %><br>
