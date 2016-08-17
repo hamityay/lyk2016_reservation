@@ -1,28 +1,4 @@
 
-<!-- <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-<b>Name : </b><br>
-<input type="text" name="name" value="<%= @place.name %>">
-<br>
-<b>Adress : </b><br>
-<input type="text" name="adress" value="<%= @place.adress %>">
-<br>
-<b>Phone Number : </b><br>
-<input type="text" name="phone_number" value="<%= @place.phone_number %>">
-<br>
-<b>City : </b><br>
-<input type="text" name="city" value="<%= @place.city %>">
-<br>
-<b>Description : </b><br>
-<textarea name="description" rows="8" cols="40" > <%= @place.description %></textarea>
-<br>
-<b>Contact Mail : </b><br>
-<input type="text" name="contact_mail" value="<%= @place.contact_mail %>">
-<br>
-<b>Established Date : </b><br>
-<input type="text" name="established_at" value="<%= @place.established_at %>">
-<br>
-<button type="submit" name="button">SUBMIT</button><br> -->
-
 <%= form_for @place do |f| %>
 	<%= f.label :name %><br>
 	<%= f.text_field :name, placeholder: 'name' %><br>
@@ -47,6 +23,9 @@
 
 	<%= f.label :Category %>
 	<%= f.select :category_id, @categories %><br>
+
+	<%= f.label :Foods %><br>
+	<%= f.collection_check_boxes(:food_ids, @foods, :id, :name) %><br>
 
 	<%= f.submit 'SUBMIT' %>
 

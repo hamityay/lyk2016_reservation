@@ -7,6 +7,7 @@
 <b>City : </b><%= @place.city %><br>
 <b>Category : </b><%= @place.category.name %><br>
 <b>Owner : </b><%= @place.owner.email %> <b> id : </b> <%= @place.owner.id %> <br>
+<b>Foods : </b><%= @place.foods.collect{|x| x.name}.join(" - ") %><br>
 <% if current_owner.present? && current_owner.id == @place.owner_id %>
   <br><i><%= link_to 'Edit place', edit_place_path %></i>
   <i><%= link_to 'Delete place', place_path(@place), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>

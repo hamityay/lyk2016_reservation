@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
 
 	def new
 		@place = Place.new
-		load_categories
+		load_form_data
 	end
 
 	def  index
@@ -23,13 +23,13 @@ class PlacesController < ApplicationController
 			flash[:success] = 'Place infos saved successfuly'
 			redirect_to place_path(@place)
 		else
-			load_categories
+			load_form_data
 			render :new
 		end
 	end
 
 	def edit
-		load_categories
+		load_form_data
 	end
 
 	def update
@@ -39,7 +39,7 @@ class PlacesController < ApplicationController
 			flash[:success] = 'Place infos updated successfuly'
 			redirect_to place_path(@place)
 		else
-			load_categories
+			load_form_data
 			render :edit
 		end
 
@@ -62,10 +62,11 @@ class PlacesController < ApplicationController
 		end
 
 		def place_params
-			params.require(:place).permit(:name, :adress, :phone_number, :city, :description, :contact_mail, :established_at, :category_id)
+			params.require(:place).permit(:name, :adress, :phone_number, :city, :description, :contact_mail, :established_at, :category_id, food_ids: [])
 		end
 
-		def load_categories
+		def load_form_data
 			@categories = Category.all.collect { |c| [c.name, c.id] }
+			@foods = Food.all
 		end
 end

@@ -7,7 +7,8 @@
 <b>Desc : </b><%= p.description %><br>
 <b>Phone Number : </b><u><%= p.phone_number %></u><br>
 <b>City : </b><%= p.city  %><br>
-<b>Category : </b><%= p.category.name %>
+<b>Category : </b><%= p.category.name %><br>
+<b>Foods : </b><%= p.foods.collect{|x| x.name}.join(" - ") %>
 </p>
 
 <hr>

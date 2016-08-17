@@ -8,6 +8,8 @@ class Place < ApplicationRecord
 	has_many :comments, dependent: :destroy
 	has_many :reservs
 	has_many :costumers, through: :reservs
+	has_and_belongs_to_many :foods
+
 	belongs_to :category
 	belongs_to :owner
 
