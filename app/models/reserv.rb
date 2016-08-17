@@ -1,6 +1,6 @@
 class Reserv < ApplicationRecord
   validate :check_date
-  validates :costumer_id, uniqueness: { scope: :place_id }
+  #validates :costumer_id, uniqueness: { scope: :place_id }  #bir kişinin sadece 1 resrvasyon yapmasını sağlıyor...
 
 
   belongs_to :place

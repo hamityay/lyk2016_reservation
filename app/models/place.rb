@@ -6,7 +6,7 @@ class Place < ApplicationRecord
 	validate :check_established_at
 
 	has_many :comments, dependent: :destroy
-	has_many :reservs
+	has_many :reservs, dependent: :destroy
 	has_many :costumers, through: :reservs
 	has_and_belongs_to_many :foods
 
