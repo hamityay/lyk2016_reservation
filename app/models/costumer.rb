@@ -5,6 +5,8 @@ class Costumer < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :comments, dependent: :destroy
+  has_many :reservs, dependent: :destroy
+  has_many :reservs, through: :costumers
 
   #before_destroy :assign
 end

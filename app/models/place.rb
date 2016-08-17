@@ -6,6 +6,8 @@ class Place < ApplicationRecord
 	validate :check_established_at
 
 	has_many :comments, dependent: :destroy
+	has_many :reservs
+	has_many :costumers, through: :reservs
 	belongs_to :category
 	belongs_to :owner
 

@@ -23,6 +23,7 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:body)
     end
+    
     def set_place
       @place = Place.find(params[:place_id])
     end

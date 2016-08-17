@@ -14,7 +14,6 @@ class PlacesController < ApplicationController
 	end
 
 	def show
-
 	end
 
 	def create

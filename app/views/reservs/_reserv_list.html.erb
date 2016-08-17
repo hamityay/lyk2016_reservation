@@ -1,0 +1,13 @@
+<h2> Reservations </h2>
+<p>
+  <% @place.reservs.each do |r| %>
+    <b> Reservation made by </b><small><%= r.costumer.email %>  </small><br>
+    <b> Reservation Date : </b> <%= r.date %><br>
+    <b> Number of Reservation people : </b> <%= r.number_of_p %>
+    <% if current_costumer.present? && r.costumer_id = current_costumer.id %>
+      <i><%= link_to 'Delete reservation', place_reserv_path(@place, r), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+    <% end %>
+    <hr>
+    <br>
+  <% end %>
+</p>

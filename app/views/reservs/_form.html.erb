@@ -1,0 +1,14 @@
+
+<h3> Make a reservation </h3>
+
+<%= form_for [@place, @place.reservs.build] do |f| %>
+
+  <%= f.label :number_of_p %><br>
+  <%= f.text_field :number_of_p, placeholder: 'number_of_people' %><br>
+
+  <%= f.label :date %><br>
+  <%= f.date_select :date %><br>
+
+  <%= f.submit 'SUBMIT' %>
+
+<% end %>

@@ -13,10 +13,14 @@
 <% end %>
 </p>
 
+<%= render 'reservs/reserv_list' %>
+
+<% if current_costumer.present? %>
+  <%= render 'reservs/form' %>
+<% end %>
 
 <%= render 'comments/comment_list' %>
 
 <% if current_costumer.present? %>
-  <h2> Comments </h2>
   <%= render 'comments/form' %>
 <% end %>
