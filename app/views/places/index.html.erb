@@ -2,13 +2,13 @@
 
 <h2> Listing all Places </h2>
 <% @places.each do |p| %>
-<p> <b>Name : </b><i><a href="<%= place_path(p) %>"> <%= p.name %> </a></i><br>
-<b>Adress : </b><%= p.adress %><br>
-<b>Desc : </b><%= p.description %><br>
-<b>Phone Number : </b><u><%= p.phone_number %></u><br>
-<b>City : </b><%= p.city  %><br>
-<b>Category : </b><%= p.category.name %><br>
-<b>Foods : </b><%= p.foods.collect{|x| x.name}.join(" - ") %>
+  <p> <b>Name : </b><i><a href="<%= place_path(p) %>"> <%= p.name %> </a></i><br>
+  <b>Adress : </b><%= p.adress %><br>
+  <b>Desc : </b><%= p.description %><br>
+  <b>Phone Number : </b><u><%= p.phone_number %></u><br>
+  <b>City : </b><%= p.city  %><br>
+  <b>Category : </b><%= p.category.name %><br>
+  <b>Foods : </b><%= p.foods.collect{|x| x.name}.join(" - ") %>
 </p>
 
 <hr>

@@ -39,6 +39,7 @@
     <% end %>
     <% if current_owner.present? %>
       <%= current_owner.email %>
+      <%= link_to 'My Places', mine_places_path %>
       <%= link_to 'Logout', destroy_owner_session_path, method: :delete %>
     <% else %>
       <%= link_to 'Login as an Owner', new_owner_session_path %>

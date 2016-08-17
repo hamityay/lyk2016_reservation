@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   #resources :places
 	root 'places#index'
 	resources :places do
+    collection do
+      get :mine
+    end
 		resources :comments, only: [:create, :destroy]
     resources :reservs, only: [:create, :destroy]
 	end

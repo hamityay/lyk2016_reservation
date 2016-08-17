@@ -1,0 +1,19 @@
+
+<h2> Listing your Places </h2>
+<% @places.each do |p| %>
+  <p> <b>Name : </b><i><a href="<%= place_path(p) %>"> <%= p.name %> </a></i><br>
+  <b>Adress : </b><%= p.adress %><br>
+  <b>Desc : </b><%= p.description %><br>
+  <b>Phone Number : </b><u><%= p.phone_number %></u><br>
+  <b>City : </b><%= p.city  %><br>
+  <b>Category : </b><%= p.category.name %><br>
+  <b>Foods : </b><%= p.foods.collect{|x| x.name}.join(" - ") %><br>
+  <b>Facebook : </b><%= p.social_profile.facebook %><br>
+  <b>Twitter : </b><%= p.social_profile.twitter %><br>
+  <b>Instagram : </b><%= p.social_profile.instagram %><br>
+  <b>Foursquare : </b><%= p.social_profile.foursquare %><br>
+  <br><i><%= link_to 'Edit place', edit_place_path(p) %></i>
+  <i><%= link_to 'Delete place', place_path(p), method: :delete, data: { confirm:  'Do you want to delete...' } %></i>
+</p>
+<hr>
+<% end %>

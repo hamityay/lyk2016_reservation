@@ -53,6 +53,10 @@ class PlacesController < ApplicationController
 		redirect_to places_path
 	end
 
+	def mine
+		@places = current_owner.places
+	end
+
 	private
 		def authorize_owner!
 			redirect_to root_path, notice: 'Not authorized...' unless @place.owner_id == current_owner.id
