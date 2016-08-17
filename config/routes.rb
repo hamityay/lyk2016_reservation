@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	root 'places#index'
 	resources :places do
 		resources :comments, only: [:create, :destroy]
-    resources :reservs, only: [:create, :update, :destroy]
+    resources :reservs, only: [:create, :destroy]
 	end
 
 	resources :categories, only: [:index, :show]

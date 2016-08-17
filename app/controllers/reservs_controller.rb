@@ -15,10 +15,6 @@ class ReservsController < ApplicationController
 
   end
 
-  def update
-
-  end
-
   def destroy
     @reserv.destroy
     redirect_to @place, notice: 'Reservation was deleted.'
